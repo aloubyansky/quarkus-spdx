@@ -15,9 +15,9 @@
     <description>Generate application SBOM following SPDX specification</description>
 
     <modules>
-        <module>generator</module>
-        <module>deployment</module>
-        <module>runtime</module>
+        <module>generator-common</module>
+        <module>v2</module>
+        <module>v3</module>
         <module>integration-tests</module>
     </modules>
 
@@ -35,6 +35,7 @@
         <quarkus.version>3.27.2</quarkus.version>
         <spdx-java-library.version>2.0.2</spdx-java-library.version>
         <spdx-jackson-store.version>2.0.4</spdx-jackson-store.version>
+        <spdx-v3jsonld-store.version>1.0.2</spdx-v3jsonld-store.version>
         <assertj.version>3.27.7</assertj.version>
         <spdx-tagvalue-store.version>2.0.2</spdx-tagvalue-store.version>
     </properties>
@@ -62,6 +63,16 @@
                 <groupId>org.spdx</groupId>
                 <artifactId>spdx-tagvalue-store</artifactId>
                 <version>${spdx-tagvalue-store.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.spdx</groupId>
+                <artifactId>spdx-v3jsonld-store</artifactId>
+                <version>${spdx-v3jsonld-store.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.quarkiverse.spdx</groupId>
+                <artifactId>quarkus-spdx-generator-common</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
