@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.quarkiverse</groupId>
+        <artifactId>quarkiverse-parent</artifactId>
+        <version>20</version>
+    </parent>
+    <groupId>io.quarkiverse.spdx</groupId>
+    <artifactId>quarkus-spdx-parent</artifactId>
+    <version>999-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Quarkus SPDX - Parent</name>
+    <description>Generate application SBOM following SPDX specification</description>
+
+    <modules>
+        <module>generator</module>
+        <module>deployment</module>
+        <module>runtime</module>
+    </modules>
+
+    <scm>
+        <connection>scm:git:git@github.com:quarkiverse/quarkus-spdx.git</connection>
+        <developerConnection>scm:git:git@github.com:quarkiverse/quarkus-spdx.git</developerConnection>
+        <url>https://github.com/quarkiverse/quarkus-spdx</url>
+    </scm>
+
+    <properties>
+        <compiler-plugin.version>3.15.0</compiler-plugin.version>
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <quarkus.version>3.32.1</quarkus.version>
+        <spdx-java-library.version>2.0.2</spdx-java-library.version>
+        <spdx-jackson-store.version>2.0.4</spdx-jackson-store.version>
+        <spdx-tagvalue-store.version>2.0.2</spdx-tagvalue-store.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-bom</artifactId>
+                <version>${quarkus.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.spdx</groupId>
+                <artifactId>java-spdx-library</artifactId>
+                <version>${spdx-java-library.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.spdx</groupId>
+                <artifactId>spdx-jackson-store</artifactId>
+                <version>${spdx-jackson-store.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.spdx</groupId>
+                <artifactId>spdx-tagvalue-store</artifactId>
+                <version>${spdx-tagvalue-store.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-maven-plugin</artifactId>
+                    <version>${quarkus.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${compiler-plugin.version}</version>
+                    <configuration>
+                        <parameters>true</parameters>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
