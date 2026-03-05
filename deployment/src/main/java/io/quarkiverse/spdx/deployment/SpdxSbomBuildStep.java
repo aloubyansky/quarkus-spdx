@@ -37,7 +37,8 @@ public class SpdxSbomBuildStep {
         if (spdxConfig.skip() || applicationManifestsBuildItem.getManifests().isEmpty()) {
             return;
         }
-        var depInfoProvider = appModelProviderBuildItem.getDependencyInfoProvider().get();
+        var depInfoProviderSupplier = appModelProviderBuildItem.getDependencyInfoProvider();
+        var depInfoProvider = depInfoProviderSupplier == null ? null : depInfoProviderSupplier.get();
         for (var manifest : applicationManifestsBuildItem.getManifests()) {
             for (var sbom : SpdxSbomGenerator.newInstance()
                     .setManifest(manifest)
