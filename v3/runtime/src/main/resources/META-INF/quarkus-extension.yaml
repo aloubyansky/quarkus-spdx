@@ -1,0 +1,10 @@
+name: "SPDX v3"
+description: "Generate application SBOM following SPDX 3.0 specification"
+metadata:
+  keywords:
+    - "spdx"
+    - "sbom"
+  categories:
+    - "security"
+  status: "preview"
+  guide: "https://docs.quarkiverse.io/quarkus-spdx/dev/"

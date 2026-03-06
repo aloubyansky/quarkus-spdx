@@ -7,12 +7,13 @@
         <artifactId>quarkus-spdx-parent</artifactId>
         <version>999-SNAPSHOT</version>
     </parent>
-    <artifactId>quarkus-spdx-integration-tests</artifactId>
+    <artifactId>quarkus-spdx-v3-parent</artifactId>
     <packaging>pom</packaging>
-    <name>Quarkus SPDX - Integration Tests - Parent</name>
+    <name>Quarkus SPDX - v3 - Parent</name>
 
     <modules>
-        <module>v2</module>
-        <module>v3</module>
+        <module>generator</module>
+        <module>deployment</module>
+        <module>runtime</module>
     </modules>
 </project>
